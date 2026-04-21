@@ -1,30 +1,51 @@
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
+import Button from '@/components/ui/button/Button.vue';
+
+
 
 </script>
 
 
 <template>
 
-<div class="cappa">
-  <h1>Home Page</h1>
+<div class="bg-[rgb(21,25,52)] h-screen text-white font-sans text-center w-screen flex flex-col justify-center items-center gap-12 fixed overflow-hidden">
+
+<img class="absolute opacity-20" src="/imagines/tonitrui.png" alt="">
+
+  <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold pb-5 md:pb-20 z-10 transition-all">
+    <span class="text-[rgb(24,182,246)]">Diseño</span> Web y 
+    <br>
+    Apps <span class="text-[rgb(24,182,246)]">Interactivas</span>
+  </h1>
+
+  <p class="text-lg md:text-2xl transition-all">
+    Aprendiendo a crear aplicaciones web
+  </p>
+
+  <div class="z-10">
+    <Button class="bg-[rgb(24,182,246)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(24,182,246,0.7)] transition-all">
+      <RouterLink to="/indecision">Sí o No</RouterLink>
+    </Button>
+
+    <Button class="bg-[rgb(24,182,246)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(24,182,246,0.7)] transition-all">
+      <RouterLink to="/batman">Batman</RouterLink>
+    </Button>
+
+    <Button class="bg-[rgb(24,182,246)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(24,182,246,0.7)] transition-all">
+      <RouterLink to="/simpsons">Simpsons</RouterLink>
+    </Button>
   
-  <Button variant="destructive" class="bg-green-500 px-12 py-8 text-3xl hover:bg-green-700">
-    Click me
-  </Button>
+    <Button class="bg-[rgb(24,182,246)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(24,182,246,0.7)] transition-all">
+      <a href="https://www.upv.es">UPV</a>
+    </Button>
+  </div>
+
 </div>
   
 </template>
 
 <style scoped>
-.cappa {
-  margin: 20px;
-}
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 12px;
-}
 
 </style>
 
