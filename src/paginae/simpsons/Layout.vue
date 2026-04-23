@@ -1,14 +1,54 @@
 
+
 <script setup lang="ts">
+import LogoSimpsons from '@/components/LogoSimpsons.vue';
+import { Button } from '@/components/ui/button';
 
 </script>
 
 <template>
-    <h1>Layout para Circa, etc, de la ruta Simpsons</h1>
-    <main>
-        <h1>Inicio Layout</h1>
-        <RouterView />
-        <h1>Fin Layout</h1>
-    </main>
+    <div class="grid grid-rows-[auto_1fr_auto] min-h-screen">
+
+        <header class="bg-[#ffde00] w-full border border-black">
+
+            <div class="flex flex-col md:flex-row justify-between items-center p-3 mx-auto max-w-[1400px] md:px-20">
+
+                <LogoSimpsons estilus="w-[8rem] h-auto "/>
+
+            <div class="flex gap-6 pt-3">
+                <RouterLink to="/simpsons/gallery" active-class="font-bold">
+                    Character
+                </RouterLink>
+
+                <RouterLink to="/simpsons/about" active-class="font-bold">
+                    About
+                </RouterLink>
+
+                <Button variant="tertiarius" size="elongatis" class="bg-[#ee3133] hover:bg-[#ffde00] focus">
+                    <RouterLink to="/simpsons">
+                        Exit
+                    </RouterLink>
+                </Button>
+            </div>
+
+            </div>
+           
+        </header>
+
+        <main>
+            <RouterView />
+        </main>
+
+        <footer class="bg-[#ffde00] w-full border border-black text-center py-6">
+            <div>
+	            <strong>All Rights Reserved</strong> - Oh Lord Matt Groening - 1989-2026
+            </div>
+
+            <small>
+	            This app was done by Marieta Manzanaro
+            </small>
+        </footer>
+    </div>
+    
 </template>
 
