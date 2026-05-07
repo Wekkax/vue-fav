@@ -12,6 +12,14 @@ import {
 import { Input } from '@/components/ui/input'
 import { ref } from 'vue';
 
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
+
 const dialogApertaEst = ref<boolean>(false)
 const quaestio = ref<string>('')
 
@@ -20,14 +28,14 @@ const quaestio = ref<string>('')
 
 <template>
 
-<div class="bg-[rgb(50,21,52)] h-screen text-white font-sans text-center w-screen flex flex-col justify-center items-center gap-12 fixed overflow-hidden">
+<div class="bg-[rgb(158,89,163)] h-screen text-white font-sans text-center w-screen flex flex-col justify-center items-center gap-12 fixed overflow-hidden">
 
 <img class="absolute opacity-20" src="/imagines/tonitrui.png" alt="">
 
   <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold pb-5 md:pb-20 z-10 transition-all">
-    <span class="text-[rgb(24,182,246)]">Diseño</span> Web y 
+    <span class="text-[rgb(236,28,184)]">Diseño</span> Web y 
     <br>
-    Apps <span class="text-[rgb(24,182,246)]">Interactivas</span>
+    Apps <span class="text-[rgb(236,28,184)]">Interactivas</span>
   </h1>
 
   <p class="text-lg md:text-2xl transition-all">
@@ -41,13 +49,22 @@ const quaestio = ref<string>('')
         @update:open="dialogApertaEst = $event"
       >
 
+      <TooltipProvider>
+      <Tooltip>
+      <TooltipTrigger as-child>
         <DialogTrigger as-child>
-          <Button class="bg-[rgb(24,182,246)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(24,182,246,0.7)] transition-all">
+          <Button class="bg-[rgb(155,240,140)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(140,211,240,0.7)] transition-all">
             Sí o No
           </Button>
         </DialogTrigger>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>Pregunta al oráculo</p>
+      </TooltipContent>
+      </Tooltip>
+      </TooltipProvider>
 
-        <DialogContent class="sm:max-w-[425px] bg-[rgb(21,25,52)] text-white border-[rgb(24,182,246)]">
+        <DialogContent class="sm:max-w-[425px] bg-[rgb(21,25,52)] text-white border-[rgb(140,211,240)]">
           <DialogHeader>
             <DialogTitle class="text-white">Pregúntame</DialogTitle>
             <DialogDescription class="text-gray-300">
@@ -57,7 +74,7 @@ const quaestio = ref<string>('')
 
           <div class="mt-4">
             <Input
-              class="bg-[rgb(31,35,62)] text-white placeholder:text-gray-400 border-[rgb(24,182,246)]"
+              class="bg-[rgb(31,35,62)] text-white placeholder:text-gray-400 border-[rgb(140,211,240)]"
               placeholder="Escribe tu pregunta aquí..."
               v-model="quaestio"
             />
@@ -66,17 +83,44 @@ const quaestio = ref<string>('')
         </DialogContent>
     </Dialog>
 
-    <Button class="bg-[rgb(24,182,246)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(24,182,246,0.7)] transition-all">
+    <TooltipProvider>
+    <Tooltip>
+    <TooltipTrigger as-child>
+    <Button class="bg-[rgb(155,240,140)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(140,211,240,0.7)] transition-all">
       <RouterLink to="/batman">Batman</RouterLink>
     </Button>
+    </TooltipTrigger>
+      <TooltipContent>
+        <p>Aprender sobre Batman</p>
+      </TooltipContent>
+    </Tooltip>
+    </TooltipProvider>
 
-    <Button class="bg-[rgb(24,182,246)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(24,182,246,0.7)] transition-all">
+    <TooltipProvider>
+    <Tooltip>
+    <TooltipTrigger as-child>
+    <Button class="bg-[rgb(155,240,140)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(140,211,240,0.7)] transition-all">
       <RouterLink to="/simpsons">Simpsons</RouterLink>
     </Button>
-  
-    <Button class="bg-[rgb(24,182,246)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(24,182,246,0.7)] transition-all">
-      <a href="https://www.upv.es">UPV</a>
+    </TooltipTrigger>
+      <TooltipContent>
+        <p>Aprender sobre los Simpson</p>
+      </TooltipContent>
+    </Tooltip>
+    </TooltipProvider>
+
+    <TooltipProvider>
+    <Tooltip>
+    <TooltipTrigger as-child>
+    <Button class="bg-[rgb(155,240,140)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgb(140,211,240,0.7)] transition-all">
+      <RouterLink to="/gatos">Gatos</RouterLink>
     </Button>
+    </TooltipTrigger>
+      <TooltipContent>
+        <p>Aprender sobre gatos</p>
+      </TooltipContent>
+    </Tooltip>
+    </TooltipProvider>
   </div>
 
 </div>

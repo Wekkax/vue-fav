@@ -7,6 +7,8 @@ import Layout from "@/paginae/simpsons/Layout.vue";
 import Circa from "@/paginae/simpsons/Circa.vue";
 import Character from "@/paginae/simpsons/Character.vue";
 import Collectione from "@/paginae/simpsons/Collectione.vue";
+import Gatos from "@/paginae/gatos/gatos.vue";
+import TiposGato from "@/paginae/gatos/TiposGato.vue";
 
 
 export const router = createRouter({
@@ -22,11 +24,21 @@ export const router = createRouter({
       name: 'batman',
       component: Batman
     },
-    //{
-    //  path: '/simpsons',
-    //  name: 'simpsons',
-    //  component: Primus
-    //},
+    {
+      path: '/gatos',
+      children: [
+        {
+          path: '',
+          name: 'gatos',
+          component: Gatos
+        },
+        {
+          path: 'tipos',
+          name: 'gatos-tipos',
+          component: TiposGato
+        }
+      ]
+    },
     {
       path: '/simpsons',
       children: [
