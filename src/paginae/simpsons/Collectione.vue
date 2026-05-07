@@ -3,8 +3,11 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { characters } from './data';
 import {computed, ref} from 'vue';
+import { useRouter } from 'vue-router';
 
 //const listaSimpsons = ref(characters.slice(0, 6));
+
+const router = useRouter()
 
 const inPagina = 6
 
@@ -30,7 +33,7 @@ const paginaMumeri: number[] = [...Array(totalPaginae)].map((_, i) => i + 1)
 </script>
 
 <template>
-    <div class="flex flex-col items-center gap-x-8 justify-center w-full max-w-[1400px] my-8">
+    <div class="flex flex-col items-center gap-x-8 justify-center w-full max-w-[1400px] my-8 mx-auto">
         <div class="text-center">
             <h1 class="font-bold text-xl mb-5">Simpsons Quote App</h1>
             <p class="mb-5">Click on the quote of your favourite character</p>
@@ -42,7 +45,10 @@ const paginaMumeri: number[] = [...Array(totalPaginae)].map((_, i) => i + 1)
             :key="character.id"
             class="cursor-pointer w-[220px] h-[240px] hover:bg-[#ee3133] hover:text-white transition-colors"
             >
-            <CardContent class="flex flex-col items-center gap-1 w-full px-0">
+            <CardContent 
+            class="flex flex-col items-center gap-1 w-full px-0"
+            @click="router.push(`/simpsons/gallery/${character.id}`)"
+            >
                 <img :src="`/imagines/simpsons/${character.imago}`" alt="" 
                 class="w-48 h-42 object-cover object-top mt-2 bg-[#ffde00] border border-black rounded-t-md"
                 >

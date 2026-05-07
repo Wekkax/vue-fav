@@ -1,4 +1,4 @@
-interface Character{
+export interface Character{
     id: number;
     nomen: string;
     imago: string;
