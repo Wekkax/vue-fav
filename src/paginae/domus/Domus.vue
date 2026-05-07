@@ -20,7 +20,7 @@ const quaestio = ref<string>('')
 
 <template>
 
-<div class="bg-[rgb(21,25,52)] h-screen text-white font-sans text-center w-screen flex flex-col justify-center items-center gap-12 fixed overflow-hidden">
+<div class="bg-[rgb(50,21,52)] h-screen text-white font-sans text-center w-screen flex flex-col justify-center items-center gap-12 fixed overflow-hidden">
 
 <img class="absolute opacity-20" src="/imagines/tonitrui.png" alt="">
 
