@@ -91,7 +91,7 @@ const quaestio = ref<string>('')
     </Button>
     </TooltipTrigger>
       <TooltipContent>
-        <p>Aprender sobre Batman</p>
+        <p>Aprende sobre Batman</p>
       </TooltipContent>
     </Tooltip>
     </TooltipProvider>
@@ -104,7 +104,7 @@ const quaestio = ref<string>('')
     </Button>
     </TooltipTrigger>
       <TooltipContent>
-        <p>Aprender sobre los Simpson</p>
+        <p>Aprende sobre los Simpson</p>
       </TooltipContent>
     </Tooltip>
     </TooltipProvider>
@@ -117,7 +117,7 @@ const quaestio = ref<string>('')
     </Button>
     </TooltipTrigger>
       <TooltipContent>
-        <p>Aprender sobre gatos</p>
+        <p>Adopta un gato</p>
       </TooltipContent>
     </Tooltip>
     </TooltipProvider>
