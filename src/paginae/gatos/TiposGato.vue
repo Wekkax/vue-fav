@@ -1,21 +1,41 @@
 <script setup lang="ts">
 import { Card, CardContent } from '@/components/ui/card';
-import { characters } from '@/paginae/simpsons/data';
 import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+const gatosList = [
+    { nombre: 'Bollo', foto: '93027c17-955e-4e52-8fbe-2f024b67e912_16-9-discover-aspect-ratio_default_0.jpg' },
+    { nombre: 'Cruasán', foto: 'British_shorthair_Irina_AEA.JPG' },
+    { nombre: 'Napolitana', foto: 'Benny-1.jpeg' },
+    { nombre: 'Toña', foto: 'Cat_November_2010-1a.jpg' },
+    { nombre: 'Galleta', foto: 'Como-educar-a-un-gato-agresivo-Blog-de-Pampermut.jpg' },
+    { nombre: 'Panini', foto: 'Gatito-tumbado-min.jpg' },
+    { nombre: 'Rollito', foto: 'GATO_UNAM-1024x768.jpg' },
+    { nombre: 'Berlina', foto: 'GB09_348_Moway-4-1024x680.jpg' },
+    { nombre: 'Pan', foto: 'colores-pelo-gato.jpg' },
+    { nombre: 'Bizcocho', foto: 'cuales-son-las-razas-de-gatos-mas-populares-en-colombia.jpg' },
+    { nombre: 'Magdalena', foto: 'fluffy-red-cat-resting-in-bright-sunlight-2022-08-01-02-05-31-utc-min.jpg' },
+    { nombre: 'Sobao', foto: 'gato-bebe_c0649b04_230110201006_900x900.jpg' },
+    { nombre: 'Coca', foto: 'gatos-pueden-comer-zanahoria.jpg' },
+    { nombre: 'Ensaimada', foto: 'istockphoto-1443562748-612x612.jpg' },
+    { nombre: 'Hojaldre', foto: 'poly.jpg' },
+    { nombre: 'Empanadilla', foto: 'sitesdefaultfilesstylessquare_medium_440x440public2022-06Siamese201.jpg' },
+    { nombre: 'Roscón', foto: 'TIMIDO.jpg' },
+    { nombre: 'Donut', foto: 'Togor-recien-llegado-scaled.jpg' }
+];
+
 const inPagina = 6;
 
 const nuncPagina = ref(1);
 
-const totalPaginae = Math.ceil(characters.length / inPagina);
+const totalPaginae = Math.ceil(gatosList.length / inPagina);
 
-const listaSimpsons = computed(() => {
+const listaGatos = computed(() => {
     const inicio = (nuncPagina.value - 1) * inPagina;
     const fin = inicio + inPagina;
-    return characters.slice(inicio, fin);
+    return gatosList.slice(inicio, fin);
 });
 
 const ireAdPaginam = (pagina: number) => {
@@ -46,10 +66,17 @@ const paginaMumeri: number[] = [...Array(totalPaginae)].map((_, i) => i + 1);
             <p class="mb-5">¡Echa un vistazo a nuestros gatos disponibles para adoptar!</p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mx-auto pt-8">
             <Card 
-            class="cursor-pointer w-[220px] h-[240px] hover:bg-[rgb(155,240,140)] hover:text-white transition-colors border-4 border-white"
+            v-for="gato in listaGatos" :key="gato.nombre"
+            class="group cursor-pointer w-[220px] h-[240px] bg-white hover:bg-[rgb(155,240,140)] transition-colors border-4 border-white overflow-hidden flex flex-col"
             >
+                <CardContent class="p-0 flex-1 overflow-hidden">
+                    <img :src="`/imagines/gatos/gatoscard/${gato.foto}`" :alt="gato.nombre" class="w-full h-full object-cover" />
+                </CardContent>
+                <div class="h-10 shrink-0 flex items-center justify-center font-bold text-[#444] group-hover:text-white">
+                    {{ gato.nombre }}
+                </div>
             </Card>
         </div>
         
